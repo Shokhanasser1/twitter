@@ -7,8 +7,10 @@ class Profile(models.Model):
     follows = models.ManyToManyField("self", 
         related_name="followed_by",
         symmetrical=False,
-        blank=True 
-        )
+        blank=True )
+    
+    date_modified = models.DateTimeField(User, auto_now=True)
+    
     
     def __str__(self) -> str:
         return self.user.username
